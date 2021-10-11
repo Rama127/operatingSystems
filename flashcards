@@ -1,0 +1,611 @@
+1
+What is a network operating system?
+
+- Provides services to clients via a network.
+
+- Generally references resources elsewhere in the network.
+
+- Optimized for performance.
+
+2
+What is the role of an operating system?
+
+To be layer between hardware and users, to reduce the complexity users deal with.
+
+To manage system resources and priorities their use between programs.
+
+The operating system is also responsible for security such as authentication and authorization.
+
+.
+
+3
+Name four key resources which General Purpose computer operating systems control
+
+- Memory (RAM)
+
+- Processors
+
+- I/O
+
+- File
+
+4
+Name the operating system programs that manage the 4 key OS resources.
+
+- Processor Scheduling
+
+- Memory Allocation
+
+- I/O Management
+
+- File Management
+
+5
+What is an API?
+
+- Application programming interface
+
+- Allows programmers to access routines/protocols/resources in a specified manner.
+
+6
+What is a virtual machine?
+
+- VM is when the OS conceals details about how the hardware is used and works from the user.
+
+- The user is presented with a simpler interface to use.
+
+7
+Give two examples of user interfaces and when they are used.
+
+- GUI - Graphical user interface. - Used for less experienced users, they have a simpler learning curve than CLI. - CLI - Command line interface. - Is used for smaller less powerful machines when running a graphical display is not appropriate, or for when automation is in mind.
+
+8
+What is an interactive operating system?
+
+Direct two way communication between user and computer.
+
+User supplies commands and data. User receives the results of processing immediately.
+
+Example: Windows XP/7/8
+
+9
+What are the three classification of operating systems?
+
+- Interactive operating systems
+
+- Real-Time operating systems
+
+- Network operating systems
+
+10
+What is a real-time operating system?
+
+Inputs are processed in a timely manner so that the output can effect the source of the inputs. Four requirements: - Support non sequential application programs. - They have to deal with multiple events happening in parallel and at unpredictable moments. - They have to process and produce response in a specified time. - Safely critical systems must have fail safe features and guaranteed responses within a specific time.
+
+11
+Why would Operating Systems for Embedded systems be different than Operating Systems for GP Computers?
+
+- Embedded systems generally fill a specific purpose, and the OSs can be specialised to fit that.
+
+- Embedded systems can have specific size requirements, so available computing resources can be limited.
+
+12
+What are the layers of a computer?
+
+User interface
+
+Resource Management
+
+Device Drivers
+
+Kernel
+
+Hardware
+
+13
+What two processing modes exist within OSs?
+
+Multiprogramming - provides parallel execution of numerous applications through OS functions.
+
+Multitasking - implies that application programmers are responsible for parallel running and interaction of applications.
+
+14
+What is the difference between Symmetric and Asymmetric multiprocessing?
+
+Symmetric Multiprocessing - OS Is fully decentralized and uses the entire pool of processors, dividing them to complete system and application tasks.
+
+Asymmetric - OS is performed entirely on a single system processor, distributing application tasks amongst other processors.
+
+15
+Give two benefits and a draw back of using a GUI.
+
++ Simple and intuitive for new users
+
++ Some commands may be simpler to perform in a GUI than in a CLI
+
+ 
+
+- GUIs require system resources and more complex hardware than CLIs
+
+- Some commands may be harder to perform in a GUI than in a CLI
+
+16
+What is swap memory?
+
+What memory is used in Linux based operating systems run out of physical RAM to use, 
+and the system provisions unused disk space to act as RAM to allow the operation of the OS to continue.
+
+////////////////////////////////////////////
+
+
+
+
+what are the differences between the three kernel types?
+Definition
+Monolithic kernel - all operating system services are run in kernel mode (eg. Linux)
+
+Microkernel - core OS services are run in kernel mode; everything else run in user mode
+
+Hybrid-kernel - somewhere in between (eg. Windows); some services run in user mode, some run in kernel mode
+Term
+
+What do processes facilitate?
+Definition
+Processes facilitate:
+* program structure
+* interleaving program execution
+* resource management
+Term
+Process creation (POSIX and Windows)
+Definition
+POSIX - fork()
+* copies the current running process in its entirety
+* continues execution of the child process from where fork is called
+
+Windows
+* since Windows supports multiple APIs, it checks which API is used during process creation and takes appropriate action
+Term
+Explain the differences between Stalling's 2 state model, 5 state model, and 7 state model.
+Definition
+* 2 state model - basic model
+* 5 state model - adds blocking I/O support
+* 7 state model - adds suspended state support
+Term
+When do processes terminate?
+Definition
+Processes terminate when:
+* there is an error
+* when the process reaches the end of execution via similar instruction
+* parent process is terminated
+Term
+How does the OS do cleanup at process termination?
+Definition
+OS cleanups at process termination by
+* releasing all non-shared memory allocated to process
+* releases any resources locked to the process
+Term
+What do threads share?
+Definition
+Threads share address space and resources.
+Term
+What are the differences between User level threads and Kernel level threads?
+Definition
+User level threads - thread scheduling managed by program
+Kernel level threads - thread scheduling managed by the OS
+Term
+Formula for Amdahl's law
+Definition
+speedup = (time taken to execute on a single processor) / (time taken to execute on N parallel processors)
+Term
+The differences between fine and coarse thread granularities.
+Definition
+Fine grained - threads do pieces of the *same* problem; often threads perform portions of a loop; used to maximize usage of processors
+
+Coarse grained - individual modules assigned a thread; each thread does something *different*; some threads may meet at a join
+Term
+Deadlock
+Definition
+Deadlock
+* the state where a process waits for resource it can never get because the resource is locked indefinitely by another process
+* this happens when each process in the set is blocked awaiting an event that can only be triggered by another blocked process in the set
+Term
+Starvation
+Definition
+Starvation
+* occurs when process never gets access to a resource due to competition from other resources
+* possibly because other processes have higher priority and gets preferential scheduling
+Term
+Atomic operations
+Definition
+Atomic operations are operations that cannot be interrupted
+Term
+Requirements for Mutual Exclusion (6)
+Definition
+Requirements for Mutual Exclusion
+1) It must be enforced: only one process at a time is allowed into its critical section
+2) A process must halt in its critical section for the same resource or shared object.
+3) It must not be possible for a process requiring access to a critical section to be delayed indefinitely: no deadlock or starvation
+4) When no process is in a critical section, any process that requests entry to its critical section must be permitted to enter w/o delay
+6) A process remains inside its critical section for a finite time only
+Term
+Semaphores
+Definition
+Semaphores = a programming mechanism provided by the OS
+* used by processes to coordinate access to a resource
+* modeled as a variable with an int value
+-semaphore may be initialized with a nonnegative int value
+-semWait decrements the semaphore value; if the value becomes negative, the process executing the semWait is blocked
+-semSignal increments the semaphore value; if the resulting value is <= 0, then a process blocked by a semWait operation (if any) is blocked
+Term
+3 ways to use sempahores
+Definition
+3 ways to use sempahores
+* create critical sections
+* use to count/limit resource usage
+* used to signal other threads
+Term
+What 3 conditions make it possible to have deadlock?
+Definition
+3 conditions that make it possible to have deadlock:
+* hold and wait
+* no preemption
+* mutual exclusion
+Term
+What is the 4th condition that ensures deadlock?
+Definition
+Circular wait
+Term
+Circular Wait
+Definition
+Circular Wait:
+A closed chain of processes exists such that each process holds at least one resource needed by the next process in the chain
+Term
+How to avoid deadlock?
+Definition
+Deadlock avoidance
+* by not allowing processes to starve or resource request to be granted
+* use Banker's algorithm
+* know resource that all processes need beforehand
+Term
+Stalling vs Tanenbaum definitions of Thread
+Definition
+Thread
+* Stalling definition - a thread is the execution portion of a process which follows an execution path(trace) through one or more programs; this may interleave with that of other processes; thus, a process has an execution state (running, ready, etc) and a dispatching priority and is the entity that is scheduled dispatched by the OS
+
+* Tanenbaum's definition - threads are processes that share the same address space
+Term
+The relationship between processes and threads in a modern OS like Windows?
+Definition
+The relationship between processes and threads in a modern OS like Windows:
+
+A process can have multiple threads.
+Term
+Under which condition can it take longer for a program to execute on an infinite number processors than it takes to execute on one processor?
+Definition
+Under which condition can it take longer for a program to execute on an infinite number processors than it takes to execute on one processor:
+
+If there is communication overhead that increases as the number of processor increases.
+Term
+What is a major disadvantage of User Level Threads?
+Definition
+A major disadvantage of User Level Threads:
+
+They cannot take advantage of multiple processors.
+Term
+Who does the scheduling for Kernel Level Threads?
+Definition
+The operating system does the scheduling for Kernel Level Threads.
+Term
+Where should memory shared by threads be allocated?
+Definition
+Memory shared by threads be allocated on the heap.
+Term
+What are reasons to use threads in a single-user multi-processing system?
+Definition
+Reasons to use threads in a single-user multi-processing system:
+* foreground and background work
+* asynchronous processing
+* modular program structure
+Term
+What is the term for when 2 threads try to modify the same area of memory in an undesirable manner?
+Definition
+Collision is when 2 threads try to modify the same area of memory in an undesirable manner.
+Term
+Define process control block
+Definition
+Process control block:
+
+A data structure that contains information to allow the OS to preempt and resume a process
+Term
+True or False?
+
+In Stalling's 5 state process model, when a process is added to the ready queue, the process is in the ready state and is ready to be run on the CPU.
+Definition
+True.
+
+In Stalling's 5 state process model, when a process is added to the ready queue, the process is in the ready state and is ready to be run on the CPU.
+Term
+Why does the suspended state exist?
+Definition
+Suspended state allows memory swapping to occur.
+Term
+What is one of the commands to create a process on a POSIX system?
+Definition
+fork() is one of the commands to create a process on a POSIX system
+Term
+What executable does Windows run when a user types "help.bat" in a terminal?
+Definition
+When a user types "help.bat" in a terminal, Windows runs cmd.exe.
+Term
+Why does the collection of processes that the OS manages have some processes in kernel mode and some processes in user mode?
+Definition
+The collection of processes that the OS manages has some processes in kernel mode and some processes in user mode because:
+switching between the 2 modes occur during normal operation of a program
+Term
+The purpose of a system call?
+Definition
+The purpose of a system call is to access operating system services.
+Term
+What data structure stores the system calls in the kernel?
+Definition
+The TRAP table stores the system calls in the kernel.
+Term
+In a microkernel design, OS services is requested via what mechanism?
+Definition
+In a microkernel design, OS services is requested via MESSAGES.
+Term
+What advantages does the seL4 microkernel have over monolithic kernel designs?
+Definition
+The advantage that the seL4 microkernel has over monolithic kernel designs is that it has been proven to be secure using mathematics.
+Term
+Before making a system call, what needs to be setup?
+Definition
+Before making a system call, registers need to be setup so that dispatch knows which system call to execute.
+Term
+A system call is executed from what space?
+Definition
+A system call is executed from user space. It starts from user space and then enters kernel space.
+Term
+The device driver serves what purpose?
+Definition
+The device driver handles communication to and from hardware.
+Term
+What does the function write do?
+Definition
+The function write sends data to an output device.
+Term
+What is a function of the dispatch handler?
+Definition
+The dispatch handler looks up the interrupt routine from the Trap table.
+Term
+Why is Link a system call?
+Definition
+Link is a system call because it needs to alter a directory file and it requires low level access to the disk drive.
+Term
+True or False?
+
+A program contains mutual exclusion, hold and wait, and no preemption conditions. The program has the potential to deadlock though deadlock may not occur.
+Definition
+True.
+
+A program contains mutual exclusion, hold and wait, and no preemption conditions. The program has the potential to deadlock though deadlock may not occur.
+Term
+When does the Banker algorithm deny a process resource access request?
+Definition
+The Banker algorithm denies a process resource access request when the resource request from the process will result in a state where deadlock may occur.
+Term
+Why can't mutual exclusion be excluded from the OS?
+Definition
+Mutual exclusion cannot be excluded from the OS because some resources require mutual exclusion, therefore it must be supported by the OS.
+Term
+In the dining philosopher problem, if we placed all 5 chopsticks in the middle and the philosopher can use any chopstick, what will happen?
+Definition
+Deadlock and starvation can occur.
+Term
+From Stalling's perspective of read and write with respect to concurrency, what kind of operations are file reads and file writes.
+Definition
+File read and file write are both write operations.
+Term
+In the dining philosopher problem, will there still be deadlock if we had 6 chopsticks and 5 philosophers?
+Definition
+No, our concurrency problem is solved.
+Term
+When does the Banker algorithm deny a process creation request?
+Definition
+The Banker algorithm denies a process creation request if creating the process has the potential to prevent one or all of the processes that is currently executing from running to completion.
+Term
+Why didn't the Babbage Difference Engine have an OS?
+Definition
+The Babbage Difference Engine didn't have an OS because it was designed for one task so it didn't need an OS.
+Term
+A time sharing system IBM 701 allowed what?
+Definition
+A time sharing system IBM 701 allowed more than one user to use a mainframe at the same time.
+Term
+What is batch system?
+Definition
+Batch System:
+The term given to a system where the next program to be run is loaded automatically when the current program finishes.
+Term
+What does the batch system require to load the next program?
+Definition
+The batch program requires a monitor program to load the next program.
+Term
+What is an OS?
+Definition
+OS
+* degree of abstraction from hardware
+* provides services to programmers/users to make their life easier
+* more services and higher levels of abstraction for more powerful programs
+Term
+Time sharing
+Definition
+Time sharing
+* multiple users connected at once; sharing of computer
+* required multiprogramming features; can preempt currently running programs to allow others to run
+* security and isolation of users important; know which connected device to send output
+* eg. IBM 701(1958)
+Term
+Virtual Memory
+Definition
+Virtual Memory
+* invented in 1956
+* first used in ATLAS computer 1962
+* can switch virtual memory block in and out of main memory
+Term
+What are some services provided by a modern OS?
+Definition
+Services provided by a modern OS
+* GUI
+* input device support (mice, keyboard)
+* networking services
+* file mgmt
+* multiprocessor support
+* support for multitasking
+* power mgmt support
+* graphics card
+* hardware support
+* extensible to new hardware
+* security
+Term
+CPU
+Definition
+CPU
+* computers have one or more
+* basic computational cycle: fetch-decode-execute
+* each processor has a set of instructions to execute
+* provides instructions to support OS
+Term
+Registers
+Definition
+Registers
+* store commands, operands, other info
+* special purpose registers
+-PC program counter: contains address of next instruction to be fetched
+-IR instruction register: contains current instruction being executed
+-AR address register: RAM address being read/written
+-PSW program status word: contains bits that are set and cleared by OS to indicate CPU state
+-SP stack pointer: points to top of stack of memory; stack holds local vars/params for function being executed
+* OS manages registers
+Term
+Interrupts
+Definition
+Interrupts
+* preempt currently running code
+* hardware or software based
+* sequence of events:
+1) program running
+2) interrupt
+3) chip saves subset of current registers
+4) runs interrupt handler
+5) goes back to where it left off
+Term
+I/O Devices
+Definition
+I/O Devices
+* CPU & Memory are the only devices that are not I/O
+* OS coordinates access to all devices
+* manufacturer provides interface
+* each device has a controller that decodes and performs commands sent from CPU
+* device drivers are software that sends commands and receives responses from the device
+Term
+What is an OS? (Stalling vs Tanebaum)
+Definition
+* Stalling's definition of OS:
+An OS makes a computer more convenient and efficient, and allows for development, testing, and introduction of new system functions.
+
+* Tanebaum's definition of OS
+An OS provides an abstract layer on top of hardware to make programming easier; it is a resource manager.
+Term
+GUI
+Definition
+GUI - Graphical User Interface
+* provides common controls
+* manages output of multiple UIs
+* easy to use interface
+* graphical representation of other systems
+Term
+Multiprocessing
+Definition
+Multiprocessing - the capability for an OS to have multiple running processes
+* during normal operations some processes may be blocked, so it may be more efficient to run a different process till the original process is unblocked
+* OS may switch between different process
+* more efficient use of resources
+Term
+What does the allocation of the CPU to the process?
+Definition
+The scheduler.
+Term
+Address space
+Definition
+* An abstraction of the memory system.
+* Represented by integer values
+Term
+Describe the relationship between processes and address space.
+Definition
+* Each process has its own address space
+* Since address spaces are not shared between processes, sharing pointers between processes is meaningless
+* Usually memory allocated to one process cannot be accessed from another process, unless special shared memory is allocated
+Term
+File System - what is their function?
+Definition
+* Manage persistent data
+* Provides device independent interface to devices (eg. disks, USB keys)
+* Manage I/O devices (each device is a file)
+Term
+What is Interprocess Communications (IPC)?
+Definition
+* A mechanism allowing processes to work together
+- allows programs to be modular
+- the OS gives each process a different address, but it refers back to the same block of physical memory
+Term
+What are pipes?
+Definition
+A serial input/output mechanism.
+Term
+What are sockets used for?
+Definition
+Communication over a network.
+Term
+What are mutexes and semaphores for?
+Definition
+They are specialized communication mechanism for process coordination.
+Term
+Do kernel mode processes all share the same address space?
+Definition
+Yes.
+Term
+What is networking for?
+Definition
+* Internet access
+- support for network protocols and devices
+* Resource sharing (eg. files, devices)
+Term
+What is auditing used for?
+Definition
+* Monitoring of resource usage (availability, amount)
+* Debugging
+* Keep track of errors
+Term
+Describe the concept of the OS being separated into layers design.
+Definition
+* The kernel layer interacts with the hardware
+* OS and application software interact through APIs
+* APIs can map into system calls
+Term
+Kernel mode vs User mode
+Definition
+* Kernel Mode - privileged mode of operation; programs running in this mode have access to all system resources
+- all processes share the same address space
+- communication between kernel modules is very efficient
+- All active components are in memory, typically
+
+* User Mode - less privileged mode
+Term
+Elaborate on the microkernel.
+Definition
+* makes kernel development more modular
+* first microkernel provided memory mgmt, IPC functionaility and thread mgmt
+* everything else implemented as user space modules
+* more fault tolerant
+* Mach was a microkernel Unix-like system
